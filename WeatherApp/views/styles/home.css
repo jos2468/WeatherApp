@@ -14,7 +14,7 @@ h1, h3 {
 
 .weather-app {
     min-height: 100vh;
-    background-image: url(/images/day/cloudy.jpg);
+    background-image: url(../../images/day/cloudy.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,7 +26,7 @@ h1, h3 {
 
 .weather-appB {
     min-height: 100vh;
-    background-image: url(/images/day/clouds.jpg);
+    background-image: url(../../images/day/clouds.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,7 +38,7 @@ h1, h3 {
 
 .weather-appC {
     min-height: 100vh;
-    background-image: url(/images/night/dawn.jpg);
+    background-image: url(../../images/night/dawn.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -50,7 +50,7 @@ h1, h3 {
 
 .weather-appD {
     min-height: 100vh;
-    background-image: url(/images/night/rainy.jpg);
+    background-image: url(../../images/night/dawn.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
