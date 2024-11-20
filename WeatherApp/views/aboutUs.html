@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>About Us</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+        <link rel="stylesheet" href="./styles/aboutUs.css">
+        <link rel="stylesheet" href="./styles/navbar.css">
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main></main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+
+
+                    
+        <div
+        class="modal fade"
+        id="modal2"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        role="dialog"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+        >
+        <div
+            class="modal-dialog modal-dialog-centered"
+            role="document"
+        >
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="loginEmail"
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                required
+                            />
+                        </div>
+                        <div class="form-check mb-3">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="rememberMe"
+                            />
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                    </form>
+                </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        Close
+                    </button>
+                    <button
+                        type="submit"
+                        form="loginForm"
+                        class="btn btn-primary"
+                    >
+                        Log In
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div
+    class="modal fade"
+    id="modal1"
+    tabindex="-1"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    role="dialog"
+    aria-labelledby="Register"
+    aria-hidden="true"
+    >
+    <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+    >
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Register</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                        />
+                    </div>
+                </form>
+            </div>
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Close
+                </button>
+                <button
+                    type="submit"
+                    form="registerForm"
+                    class="btn btn-primary"
+                >
+                    Register
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./home.html">
+                <i class="fa-solid fa-cloud-sun-rain fa-2x"></i>
+                WeatherApp
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/FavA.html">Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./home.html">Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="aboutUs.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactUs.html">Contact Us</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-secondary" href="#" data-bs-toggle="modal" data-bs-target="#modal2">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-secondary" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="about-section">
+        <h1>About Us</h1>
+        <p><div class="container my-5">
+            <div class="text-center">
+                <p class="lead">
+                    <strong>Bienvenido a WeatherApp</strong> – tu aliado confiable para obtener información del clima en las principales ciudades del mundo.
+                </p>
+            </div>
+            <div class="mt-4">
+                <h2>Nuestra Misión</h2>
+                <p>
+                    Brindar información meteorológica confiable, actualizada y fácil de entender para usuarios de todo el mundo. Queremos que tomes decisiones informadas con base en pronósticos y datos precisos.
+                </p>
+            </div>
+            <div class="mt-4">
+                <h2>¿Qué Ofrecemos?</h2>
+                <ul>
+                    <li><strong>Cobertura Global:</strong> Consulta el clima de las ciudades más importantes del mundo.</li>
+                    <li><strong>Actualizaciones en Tiempo Real:</strong> Mantente informado con pronósticos precisos al minuto.</li>
+                    <li><strong>Experiencia Amigable:</strong> Disfruta de una interfaz limpia e intuitiva diseñada para tu comodidad.</li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <h2>¿Por Qué Elegirnos?</h2>
+                <p>
+                    Usamos tecnología de vanguardia para garantizar la precisión de nuestros pronósticos, ofreciéndote información personalizada según tu ubicación y necesidades. Nuestro equipo de desarrolladores y expertos en meteorología trabaja incansablemente para brindarte una experiencia confiable y sin complicaciones, estés donde estés.
+                </p>
+            </div>
+            <div class="mt-4 text-center">
+                <h2>Conectemos</h2>
+                <p>
+                    WeatherApp es más que una herramienta meteorológica, es tu compañero para mantenerte preparado. Explora el pronóstico de tu ciudad o descubre los patrones climáticos de todo el mundo. Sea cual sea el clima, estamos aquí para ayudarte a planificar tu día perfecto.
+                </p>
+                <p class="font-italic"><strong>Gracias por elegir WeatherApp – Tu Mundo, Tu Clima.</strong></p>
+            </div>
+        </div>
+        </p>
+    </div>
+    <br>
+    <h2 style="text-align:center">Nuestro Equipo</h2>
+    <div class="row">
+        <div class="column">
+          <div class="card">
+            <img src="../images/joss.jpeg" alt="Joss" style="width:100%">
+            <div class="container">
+                <br>
+              <h2>José Ángel León</h2>
+              <p class="title">Desarrollador</p>
+              <p>Estudiante de Ingeniería en Sistemas Computacionales fanático de ChatGPT.</p>
+              <p>joseangel.leon@gmail.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+           </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <img src="../images/velo.jpeg" alt="Mike" style="width:100%">
+            <div class="container">
+                <br>
+              <h2>Alejandro Rodríguez Veloquio</h2>
+              <p class="title">Desarrollador</p>
+              <p>Estudiante de Ingeniería en Sistemas Computacionales fanático de el futbol.</p>
+              <p>alex.veloquio@gmail.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <img src="../images/whoan.jpeg" alt="John" style="width:100%">
+            <div class="container">
+            <br>
+              <h2>Juan Pablo Pérez López</h2>
+              <p class="title">Desarrollador</p>
+              <p>Estudiante de Ingeniería en Sistemas Computacionales fanático de The Binding Of Isaac.</p>
+              <p>juan.perezl@gmail.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
