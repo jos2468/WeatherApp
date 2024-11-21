@@ -22,6 +22,175 @@
     </head>
 
     <body>
+        <div
+            class="modal fade"
+            id="modal2"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            role="dialog"
+            aria-labelledby="loginModalLabel"
+            aria-hidden="true"
+            >
+            <div
+                class="modal-dialog modal-dialog-centered"
+                role="document"
+            >
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Email address</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="loginEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Password</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    required
+                                />
+                            </div>
+                            <div class="form-check mb-3">
+                                <input
+                                    type="checkbox"
+                                    class="form-check-input"
+                                    id="rememberMe"
+                                />
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Footer -->
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                        <button
+                            type="submit"
+                            form="loginForm"
+                            class="btn btn-primary"
+                        >
+                            Log In
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <div
+        class="modal fade"
+        id="modal1"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        role="dialog"
+        aria-labelledby="Register"
+        aria-hidden="true"
+        >
+        <div
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+            role="document"
+        >
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Register</h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="registername"
+                                placeholder="Enter your name"
+                                required
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="registeremail"
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="registerpassword"
+                                placeholder="Enter your password"
+                                required
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="confirmpass"
+                                placeholder="Confirm your password"
+                                required
+                            />
+                        </div>
+                    </form>
+                </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        Close
+                    </button>
+                    <button
+                        type="submit"
+                        form="registerForm"
+                        class="btn btn-primary"
+                    >
+                        Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
         <nav class="navbar navbar-expand-lg bg-white shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -40,18 +209,18 @@
                             <a class="nav-link active" href="./home.html">Weather</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="./aboutUs.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
+                            <a class="nav-link" href="./contactUs.html">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-secondary" href="#">Log In</a>
+                            <a class="nav-link btn btn-outline-secondary" data-bs-target="#modal2" data-bs-toggle="modal" href="#">Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-secondary" href="#">Register</a>
+                            <a class="nav-link btn btn-outline-secondary" data-bs-target="#modal1"  data-bs-toggle="modal">Register</a>
                         </li>
                     </ul>
                 </div>
