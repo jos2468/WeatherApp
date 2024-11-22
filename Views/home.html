@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="../styles/home.css">
+        <link rel="stylesheet" href="../styles/navbar.css">
+    </head>
+
+    <body>
+        <div
+            class="modal fade"
+            id="modal2"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            role="dialog"
+            aria-labelledby="loginModalLabel"
+            aria-hidden="true"
+            >
+            <div
+                class="modal-dialog modal-dialog-centered"
+                role="document"
+            >
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Email address</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="loginEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Password</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    required
+                                />
+                            </div>
+                            <div class="form-check mb-3">
+                                <input
+                                    type="checkbox"
+                                    class="form-check-input"
+                                    id="rememberMe"
+                                />
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Footer -->
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                        <button
+                            type="submit"
+                            form="loginForm"
+                            class="btn btn-primary"
+                        >
+                            Log In
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <div
+        class="modal fade"
+        id="modal1"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        role="dialog"
+        aria-labelledby="Register"
+        aria-hidden="true"
+        >
+        <div
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+            role="document"
+        >
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Register</h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="registername"
+                                placeholder="Enter your name"
+                                required
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="registeremail"
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="registerpassword"
+                                placeholder="Enter your password"
+                                required
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="confirmpass"
+                                placeholder="Confirm your password"
+                                required
+                            />
+                        </div>
+                    </form>
+                </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        Close
+                    </button>
+                    <button
+                        type="submit"
+                        form="registerForm"
+                        class="btn btn-primary"
+                    >
+                        Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <i class="fa-solid fa-cloud-sun-rain fa-2x"></i>
+                    WeatherApp
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./FavA.html">Favorites</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="./home.html">Weather</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./aboutUs.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contactUs.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-secondary" href="#" data-bs-toggle="modal" data-bs-target="#modal2">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-secondary" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="weather-app">
+            <div class="container">
+                <h3 class ="brand">Weather</h3>
+                <div>
+                    <h1 class="temp">16&#176;</h1>
+                    <div class="city-time">
+                        <h1 class="name"></h1>
+                        <small>
+                            <span class="time"></span>
+                            -
+                            <span class="date">
+                                
+                            </span>
+                            </small>
+                        </div>
+                        <div class="weather">
+                            <img 
+                                class="icon" 
+                                src="" 
+                                alt="icon"
+                                width = "50"
+                                height="50"
+                                />
+                            <span class="condition"></span>
+                    </div>     
+                </div>
+            </div>
+            <div class="panel">
+                <form id="locationInput">
+                    <input
+                        type="text"
+                        class="search"
+                        placeholder="Search Location..."
+                        />
+                        <button type="submit" class="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                </form>
+            
+                <ul class="cities">
+                    <li class="city">New York</li>
+                    <li class="city">Paris</li>
+                    <li class="city">Tokyo</li>
+                    <li class="city">London</li>
+                </ul>
+
+                <ul class="details">
+                    <h4>Weather Details</h4>
+                    <li>
+                        <span>Cloudy</span>
+                        <span class="cloud">89%</span>
+                    </li>
+                    <li>
+                        <span>Humidity</span>
+                        <span class="humidity">64%</span>
+                    </li>
+                    <li>
+                        <span>Wind</span>
+                        <span class="wind">8km/h</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+
+        <script src="../Controllers/index.js"></script>
+    </body>
+</html>
