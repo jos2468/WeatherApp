@@ -51,21 +51,57 @@ modalregister.addEventListener("submit",async function (event) {
 
 
 
-let modallogin=document.getElementById("loginForm")
-modallogin.addEventListener("submit",async function (event) {
-    event.preventDefault()
 
-    let login_email=document.getElementById("loginEmail").value
-    let login_pass=document.getElementById("loginPassword").value
+let modallogin = document.getElementById("loginForm");
 
-    let stored_data=sessionStorage.getItem("userdata");
-    let userdata= JSON.parse(stored_data)
+modallogin.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-    if(login_email==userdata.email&& login_pass==userdata.password){
-        alert(`Bienvenido ${userdata.name}`)
+    let login_email = document.getElementById("loginEmail").value;
+    let login_pass = document.getElementById("loginPassword").value;
 
-    }
+    let logindata = { Email: login_email, Password: login_pass };
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "http://localhost:3000/api/login");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(logindata));
+
+    console.log("Solicitud enviada");
+
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            let response = JSON.parse(xhr.responseText);
+
+            // Imprimir la respuesta completa para ver qué está recibiendo
+            console.log("Respuesta completa:", response);
+
+            // Verificar que la respuesta contenga el token
+            if (response.token) {
+                let token = response.token;
+                alert("Bienvenido")
+                localStorage.setItem("token",JSON.stringify(token)  )
+                
+            } else {
+                console.log("No se encontró el token en la respuesta.");
+                alert("No se recibió un token.");
+            }
+        } else {
+            console.log("Error en la solicitud. Código de estado:", xhr.status);
+            alert("Correo o contraseña incorrectos");
+        }
+    };
 
     modallogin.reset();
+});
+
+function decodeJWT(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
     
-})
+    return JSON.parse(jsonPayload);
+}

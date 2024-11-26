@@ -15,7 +15,9 @@ let userSchema= new mongoose.Schema({
     Password:{
         type: String,
         required:true
-    }
+    },
+    
+    Favorites: { type: [String], default: [] } // Lista de favoritos
 
 });
 
