@@ -39,7 +39,7 @@ app.get("/home", (req, res) => {
     res.sendFile(path.join(__dirname, "../Views/home.html"));
 });
 
-app.get("/FavA", authenticateToken, (req, res) => {
+app.get("/FavA", (req, res) => {
     res.sendFile(path.join(__dirname, "../Views/FavA.html"));
     
 });
@@ -52,11 +52,13 @@ app.get("/contactUs", (req, res) => {
     res.sendFile(path.join(__dirname, "../Views/contactUs.html"));
 });
 
+app.get("/api/validate-token", authenticateToken, (req, res) => {
+    res.status(200).json({ message: "Token válido" });
+});
+
 function authenticateToken(req, res, next) {
     let authHeader = req.headers["authorization"];
     let token = authHeader && authHeader.split(" ")[1];
-    
-    token = token ? token.replace(/^"|"$/g, '') : null;
     console.log(token)
 
 
@@ -71,8 +73,8 @@ function authenticateToken(req, res, next) {
             console.log("Entra al error que no es el token, ")
             return res.status(403).json({ message: "Acceso denegado: Token inválido" });
         }
-        console.log("No paso ningun error")
-        
+        console.log("token verificado")
+
         req.user = user;
         next();
     });
@@ -114,7 +116,6 @@ app.post("/api/login", async (req, res) => {
             { expiresIn: "1h" }  // Expiración del token
         );
         
-        console.log(clave);
         console.log(token);
 
         // Enviar el token al cliente

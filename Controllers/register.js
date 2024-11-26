@@ -74,10 +74,10 @@ modallogin.addEventListener("submit", async function (event) {
         if (xhr.status == 200) {
             let response = JSON.parse(xhr.responseText);
 
-            // Imprimir la respuesta completa para ver qué está recibiendo
+            
             console.log("Respuesta completa:", response);
 
-            // Verificar que la respuesta contenga el token
+            
             if (response.token) {
                 let token = response.token;
                 alert("Bienvenido")
