@@ -229,29 +229,26 @@
 
         <div class="weather-app">
             <div class="container">
-                <h3 class ="brand">Weather</h3>
+                <h3 class="brand">Weather</h3>
                 <div>
-                    <h1 class="temp">16&#176;</h1>
+                    <h1 class="temp">--&#176;</h1>
                     <div class="city-time">
-                        <h1 class="name"></h1>
+                        <h1 class="name">--</h1>
                         <small>
-                            <span class="time"></span>
-                            -
-                            <span class="date">
-                                
-                            </span>
-                            </small>
-                        </div>
-                        <div class="weather">
-                            <img 
-                                class="icon" 
-                                src="" 
-                                alt="icon"
-                                width = "50"
-                                height="50"
-                                />
-                            <span class="condition"></span>
-                    </div>     
+                            <span class="time">--</span> -
+                            <span class="date">--</span>
+                        </small>
+                    </div>
+                    <div class="weather">
+                        <img 
+                            class="icon" 
+                            src="" 
+                            alt="icon"
+                            width="50"
+                            height="50"
+                        />
+                        <span class="condition">--</span>
+                    </div>
                 </div>
             </div>
             <div class="panel">
@@ -260,10 +257,10 @@
                         type="text"
                         class="search"
                         placeholder="Search Location..."
-                        />
-                        <button type="submit" class="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
+                    />
+                    <button type="submit" class="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </form>
             
                 <ul class="cities">
@@ -272,24 +269,28 @@
                     <li class="city">Tokyo</li>
                     <li class="city">London</li>
                 </ul>
-
-                <ul class="details">
-                    <h4>Weather Details</h4>
-                    <li>
-                        <span>Cloudy</span>
-                        <span class="cloud">89%</span>
-                    </li>
-                    <li>
-                        <span>Humidity</span>
-                        <span class="humidity">64%</span>
-                    </li>
-                    <li>
-                        <span>Wind</span>
-                        <span class="wind">8km/h</span>
-                    </li>
-                </ul>
+        
+                <div class="details-and-graph">
+                    <ul class="details">
+                        <h4>Weather Details</h4>
+                        <li>
+                            <span>Cloudy</span>
+                            <span class="cloud">--%</span>
+                        </li>
+                        <li>
+                            <span>Humidity</span>
+                            <span class="humidity">--%</span>
+                        </li>
+                        <li>
+                            <span>Wind</span>
+                            <span class="wind">-- km/h</span>
+                        </li>
+                    </ul>
+                    <canvas id="weatherGraph" width="300" height="200"></canvas>
+                </div>
             </div>
         </div>
+        
         
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -303,6 +304,7 @@
             crossorigin="anonymous"
         ></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>        
         <script src="../Controllers/index.js"></script>
         <script src="../Controllers/register.js"></script>
         <script src="../Controllers/token.js"> </script>
