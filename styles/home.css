@@ -45,7 +45,7 @@ h1, h3 {
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    padding: 2em 3em 4em 3em;
+    padding: 2em 3em 6em 3em;
 }
 
 .container > div {
