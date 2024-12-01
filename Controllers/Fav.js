@@ -14,6 +14,7 @@ const btn = document.querySelector('.submit');
 const cities = document.querySelectorAll('.city');
 const favoritesContainer = document.querySelector('.favorites-container');
 const favoriteBtn = document.querySelector('.favorite-btn');
+const suggestionsContainer = document.querySelector('.autocomplete-suggestions');
 
 let cityInput = "Mexico City";
 let favorites = [];
@@ -56,15 +57,98 @@ cities.forEach((city) => {
 
 // Evento de submit para buscar ciudad
 form.addEventListener('submit', (e) => {
-    if (search.value.length == 0) {
+    e.preventDefault(); 
+    if (search.value.length === 0) {
         alert('Type a city name');
     } else {
         cityInput = search.value;
         fetchWeatherData();
-        search.value = "";
-        app.style.opacity = "0";
+        fetchWeatherGraphData(cityInput);
+        search.value = ''; 
+        suggestionsContainer.innerHTML = ''; 
+        suggestionsContainer.classList.remove('visible');
+        app.style.opacity = '0';
     }
-    e.preventDefault();
+});
+
+function removeDuplicates(suggestions) {
+    const uniqueSuggestions = [];
+    const seen = new Set();
+
+    suggestions.forEach(suggestion => {
+        if (!seen.has(suggestion.name)) {
+            seen.add(suggestion.name);
+            uniqueSuggestions.push(suggestion);
+        }
+    });
+
+    return uniqueSuggestions;
+}
+
+// Función para obtener sugerencias de autocompletado
+function fetchAutocompleteSuggestions(query) {
+    if (!query) {
+        suggestionsContainer.innerHTML = '';
+        suggestionsContainer.classList.remove('visible'); 
+        return;
+    }
+
+    fetch(`https://api.weatherapi.com/v1/search.json?key=539c86bb88c44da68c1230220242111&q=${query}`)
+        .then(response => response.json())
+        .then(data => {
+            const uniqueData = removeDuplicates(data); // Elimina duplicados
+            if (uniqueData.length > 0) {
+                renderSuggestions(uniqueData);
+                suggestionsContainer.classList.add('visible'); 
+            } else {
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.classList.remove('visible'); 
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching autocomplete suggestions:", error);
+            suggestionsContainer.innerHTML = '';
+            suggestionsContainer.classList.remove('visible'); 
+        });
+}
+
+// Renderizar las sugerencias
+function renderSuggestions(suggestions) {
+    suggestionsContainer.innerHTML = '';
+    const existingSuggestions = new Set();
+
+    suggestions.forEach((suggestion) => {
+        if (!existingSuggestions.has(suggestion.name)) {
+            existingSuggestions.add(suggestion.name);
+
+            const li = document.createElement('li');
+            li.textContent = suggestion.name;
+            li.classList.add('suggestion-item');
+            li.addEventListener('click', () => {
+                cityInput = suggestion.name;
+                fetchWeatherData();
+                fetchWeatherGraphData(cityInput);
+                suggestionsContainer.innerHTML = ''; 
+                suggestionsContainer.classList.remove('visible'); 
+                search.value = ''; 
+                app.style.opacity = '0';
+            });
+            suggestionsContainer.appendChild(li);
+        }
+    });
+}
+
+// Evento input para mostrar sugerencias mientras se escribe
+search.addEventListener('input', () => {
+    fetchAutocompleteSuggestions(search.value.trim());
+});
+
+// Limpia las sugerencias al hacer clic fuera del formulario
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('#locationInput')) {
+        suggestionsContainer.innerHTML = ''; 
+        suggestionsContainer.classList.remove('visible'); 
+    }
 });
 
 // Función para obtener el día de la semana

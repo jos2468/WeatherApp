@@ -45,7 +45,7 @@ h1, h3 {
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    padding: 2em 3em 4em 3em;
+    padding: 2em 3em 6em 3em;
 }
 
 .container > div {
@@ -221,6 +221,48 @@ ul.detailsB li {
     justify-content: space-between;
     align-items: center;
 }
+
+.autocomplete-suggestions {
+    display: none; 
+    position: absolute;
+    top: 50px; 
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 8px; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; 
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px); 
+}
+
+.autocomplete-suggestions.visible {
+    display: block; 
+}
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    color: #fff; 
+    font-size: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: #fa6d1b; 
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}   
 
 @media screen and (max-width: 800px) {
     .panel, .container {

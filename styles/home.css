@@ -184,6 +184,49 @@ ul.detailsB li {
     align-items: center;
 }
 
+.autocomplete-suggestions {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 50px; /* Ajusta según el diseño */
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Fondo translúcido oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde suave */
+    border-radius: 8px; /* Bordes redondeados */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Altura máxima */
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilidad para Safari */
+}
+
+.autocomplete-suggestions.visible {
+    display: block; /* Mostrar cuando haya sugerencias */
+}
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    color: #fff; /* Texto blanco */
+    font-size: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil entre sugerencias */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo translúcido más claro */
+    color: #fa6d1b; /* Texto con color de acento */
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+
 @media screen and (max-width: 800px) {
     .panel, .container {
         position: relative;
