@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "../")));
 
 
 
-let mongoConnection= "mongodb+srv://admin:Alexrv11@myapp.nmoet.mongodb.net/MyAppDB";
+let mongoConnection= "mongodb+srv://jpperezl2003:Futbol2003@myapp.bq18m.mongodb.net/MyappDB";
 let db=  mongoose.connection;
 
 
@@ -199,7 +199,11 @@ app.post("/api/users", (req,res) => {
     let {Name,Email,Password} = req.body;
     
     let user= new User({Name,Email,Password});
-    user.save().then((doc)=>console.log("Usuario Creado:" + doc));
+    user.save().then((doc)=>console.log("Usuario Creado"));
+
+    res.status(201).json({
+        message: "Usuario creado correctamente",
+    });
 
 });
 

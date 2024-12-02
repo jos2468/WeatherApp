@@ -13,7 +13,7 @@ h1, h3 {
 }
 
 .weather-app {
-    min-height: 100vh;
+    height: 100vh;
     background-image: url(../../images/cloudy.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -243,4 +243,8 @@ ul.detailsB li {
     .weather-app {
         min-height: 40em;
     }
+}
+
+body {
+    overflow: hidden;
 }

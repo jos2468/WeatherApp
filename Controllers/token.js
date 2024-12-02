@@ -1,10 +1,15 @@
+
+
+let token2 = sessionStorage.getItem('token');
+token2 = token2 ? token2.replace(/^"|"$/g, '') : null;
+
+ocultarloginreg(token2);
 document.getElementById("favorites-link").addEventListener("click", (event) => {
     event.preventDefault();
 
-    // Recuperar el token del almacenamiento local
-    let token2 = localStorage.getItem('token');
-    token2 = token2 ? token2.replace(/^"|"$/g, '') : null;
     
+    let token2 = sessionStorage.getItem('token');
+    token2 = token2 ? token2.replace(/^"|"$/g, '') : null;
 
     
     if (!token2) {
@@ -38,3 +43,5 @@ document.getElementById("favorites-link").addEventListener("click", (event) => {
 
     xhr.send();
 });
+
+

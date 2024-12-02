@@ -1,7 +1,7 @@
 
 
-let modalregister=document.getElementById("registerForm");
-
+let modalregister=document.getElementById("modal1");
+let modalregisterinstance = new bootstrap.Modal(modalregister);
 modalregister.addEventListener("submit",async function (event) {
     event.preventDefault()
     
@@ -30,11 +30,10 @@ modalregister.addEventListener("submit",async function (event) {
 
     xhr.onload=function(){
 
-        
         if (xhr.status==201){
             alert("Usuario agregado correctamente");
-
-
+            modalregisterinstance.hide()
+            
         }
         else if(xhr.status !=200){
             alert(xhr.status + ':' + xhr.statusText);
@@ -52,7 +51,10 @@ modalregister.addEventListener("submit",async function (event) {
 
 
 
-let modallogin = document.getElementById("loginForm");
+let modallogin = document.getElementById("modal2");
+let modalLoginInstance = new bootstrap.Modal(modallogin);
+
+
 
 modallogin.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -81,8 +83,12 @@ modallogin.addEventListener("submit", async function (event) {
             if (response.token) {
                 let token = response.token;
                 alert("Bienvenido")
-                localStorage.setItem("token",JSON.stringify(token)  )
-                
+                sessionStorage.setItem("token",JSON.stringify(token)  )
+
+                let token2=sessionStorage.getItem('token');
+                ocultarloginreg(token2)
+                modalLoginInstance.hide()
+
             } else {
                 console.log("No se encontró el token en la respuesta.");
                 alert("No se recibió un token.");
@@ -94,6 +100,7 @@ modallogin.addEventListener("submit", async function (event) {
     };
 
     modallogin.reset();
+
 });
 
 function decodeJWT(token) {
@@ -104,4 +111,16 @@ function decodeJWT(token) {
     }).join(''));
     
     return JSON.parse(jsonPayload);
+}
+
+function ocultarloginreg(token2){
+
+    if(token2){
+        login=document.getElementById("login");
+        register=document.getElementById("register")
+        
+        login.style.display="none";
+        register.style.display="none";
+        
+;    }
 }
