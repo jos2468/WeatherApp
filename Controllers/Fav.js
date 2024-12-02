@@ -40,6 +40,7 @@ function updateFavoritesDisplay() {
         cityElement.addEventListener('click', () => {
             cityInput = city;
             fetchWeatherData();
+            fetchWeatherGraphData(cityInput);
             app.style.opacity = "0";
         });
         favoritesContainer.appendChild(cityElement);
@@ -51,6 +52,7 @@ cities.forEach((city) => {
     city.addEventListener('click', (e) => {
         cityInput = e.target.innerHTML;
         fetchWeatherData();
+        fetchWeatherGraphData(cityInput);
         app.style.opacity = "0";
     });
 });
@@ -218,6 +220,53 @@ function fetchWeatherData() {
     .catch(() => {
         alert('City not found');
         app.style.opacity = "1";
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const defaultCity = "Mexico City"; // Ciudad por defecto
+    fetchWeatherGraphData(defaultCity); // Mostrar gráfico automáticamente
+});
+
+function fetchWeatherGraphData(city) {
+    fetch(`/api/weather/24hours?city=${city}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Datos recibidos para la gráfica (Frontend):", data); // Ver datos crudos
+            const temperatures = data.map(entry => entry?.temp_c ?? null); // Extraer temperaturas
+            console.log("Temperaturas procesadas para la gráfica:", temperatures); // Ver array procesado
+
+            const hours = Array.from({ length: 24 }, (_, i) => `${24 - i}h`);
+
+            // Renderizar la gráfica
+            renderGraph(hours, temperatures);
+        })
+        .catch(error => {
+            console.error("Error al cargar datos del clima para la gráfica:", error);
+        });
+}
+let chartInstance; // Variable global para la instancia del gráfico
+
+function renderGraph(labels, data) {
+    const ctx = document.getElementById("weatherGraph").getContext("2d");
+
+    if (chartInstance) {
+        chartInstance.destroy();
+    }
+
+    chartInstance = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Temperatura (°C)",
+                data: data,
+                borderColor: "white",
+                fill: false,
+                tension: 0.1,
+            }],
+        },
     });
 }
 

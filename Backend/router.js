@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "../")));
 
 
 
-let mongoConnection= "mongodb+srv://jpperezl2003:Futbol2003@myapp.bq18m.mongodb.net/MyappDB";
+let mongoConnection= "mongodb+srv://admin:Alexrv11@myapp.nmoet.mongodb.net/MyAppDB";
 let db=  mongoose.connection;
 
 

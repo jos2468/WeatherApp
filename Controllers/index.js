@@ -276,7 +276,7 @@
                 datasets: [{
                     label: "Temperatura (°C)",
                     data: data,
-                    borderColor: "blue",
+                    borderColor: "white",
                     fill: false,
                     tension: 0.1,
                 }],
